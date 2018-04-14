@@ -1,0 +1,134 @@
+/*INDEX*/
+.news-hot {
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+}
+
+.container ul{
+	
+}
+
+
+.li-box{
+	width: 30%;
+	list-style:none;
+}
+.li-box:nth-child(1) h5{
+	    margin-left: 30px;
+}
+.li-box h5{
+	font-family:arial;
+	font-weight:bold;
+	
+}
+.content-left{
+	width: 430px;
+	border: 2px solid;
+	padding: 20px;
+}
+.content-right{
+	width: 300px;
+	border: 2px solid;
+	padding: 20px;
+	position: absolute;
+	right: 15%;
+}
+.content{
+	
+}
+.content ul{
+	
+}
+.content ul li{
+	border-bottom: 1px solid;
+	margin-bottom: 15px;
+	list-style:disc;
+}
+
+.content-left ul li a{
+	font-family: arial;
+	font-size: 16px;
+	font-weight:bold;
+}
+.content-left ul li p{
+	margin-top: 10px;
+	font-size: 15px;
+	font-family: arial;
+}
+.content-right ul li a{
+	font-size: 13px;
+	font-family: arial;
+	font-weight:bold;
+}
+.content-right ul li p{
+	font-family: arial;
+	font-size: 11px;
+	margin-top: 5px;
+	line-height: 18px;
+	text-align: justify;
+}
+.page{
+	
+	margin: 12px auto;
+	position: relative;
+	left: 24%;
+}
+.page a{
+	margin-right: 15px;
+	margin-left: 9px;
+}
+
+/*LOGIN*/
+.form-signin {
+	max-width: 400px;
+	padding: 40px 20px 20px;
+	margin: 0 auto;
+}
+
+.form-signin-heading {
+	text-align: center;
+	margin-bottom: 30px;
+	margin-top: 50px;
+}
+
+.login-control {
+	position: relative;
+	font-size: 16px;
+	height: auto;
+	padding: 10px;
+}
+
+input[type="text"] {
+	margin-bottom: 5px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+input[type="password"] {
+	margin-bottom: 10px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+/*Footer*/
+.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	color: white;
+	text-align: center;
+	margin-bottom: 0px;
+}
+
+
+body {
+	padding-top: 50px;
+  }
+  .starter-template {
+	padding: 40px 15px;
+	text-align: center;
+  }
+  
