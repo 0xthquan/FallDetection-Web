@@ -1,0 +1,3 @@
+curl --header "Authorization: key=AAAAnUIDtLY:APA91bGNQsp4dun580bq-dunJ9Va0Du3oZHkMJDYCyyaZd3BNj_HQRSe5HHF70Z1iun9c8zoR-wN0zVcq_pzfSFevWCzRP7oAopYP_joWra-UxgrMCkt0fRzn-SafZRgajn1bvOztXE-" --header
+"Content-Type: application/json" https://android.googleapis.com/gcm/send -d
+"{\"registration_ids\":[\"eQ47dPT5wKo:APA91bEil9T9GMb7hu1FrW1Hb94AN-440idWiHyh9Z-1t7iGKte82Z6PCjSFyBfErkliSvHFlTEFcb2xIAJ8tlTDsJzbCd_C7hhKS_ZbLF0fBMl8t13rWsUIKUp5ov_DD3zeOn9gN2wI\"]}"
