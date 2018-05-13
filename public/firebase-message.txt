@@ -1,3 +1,10 @@
 curl --header "Authorization: key=AAAAnUIDtLY:APA91bGNQsp4dun580bq-dunJ9Va0Du3oZHkMJDYCyyaZd3BNj_HQRSe5HHF70Z1iun9c8zoR-wN0zVcq_pzfSFevWCzRP7oAopYP_joWra-UxgrMCkt0fRzn-SafZRgajn1bvOztXE-" --header
 "Content-Type: application/json" https://android.googleapis.com/gcm/send -d
 "{\"registration_ids\":[\"eQ47dPT5wKo:APA91bEil9T9GMb7hu1FrW1Hb94AN-440idWiHyh9Z-1t7iGKte82Z6PCjSFyBfErkliSvHFlTEFcb2xIAJ8tlTDsJzbCd_C7hhKS_ZbLF0fBMl8t13rWsUIKUp5ov_DD3zeOn9gN2wI\"]}"
+
+
+curl -X POST --header "Authorization: key=AIzaSyAMBEmcJ-TMH0vhyDgd0yeG-hbeW6xYCeY" --Header "Content-Type:application/json" https://fcm.googleapis.com/fcm/send -d "{\"to\":\"dy-FN6n7S3A:APA91bFx5gARhbjV_EQd4Tdoiu-FlGeO5-IGbhks3OYbMus_xDVHDnlslZHRsciJ9RJwagszo0Ai6SWezGeT5JQNgSC8BqpumVy_wVmCxC7mMJ5eZ9Q2IK23jFeFU9JMYcr4lLEvV01P\",\"data\":{\"notification\":{\"body\":\"Are you coming to our party?\",\"title\":\"This is a tester tester\"}}}"
+
+curl --header "Authorization: key=AIzaSyAMBEmcJ-TMH0vhyDgd0yeG-hbeW6xYCeY" --header "Content-Type:application/json" -d "{\"to\":\"deBbaMW5K6U:APA91bHp12vN-nWDcn6D5c0AV7SLK7VbGHtYMyL1NmJfN5yAcJm7HNuV5ivWQqAnfl_9ls7o99wR_hnzUii8HdnULCv6WCSm4xhnNVfj-9B00LLv2jwyC65k5YxdIqaByduyxUxLWk3S\",\"data\":{\"notification\":{\"body\":\"Are you coming to our party?\",\"title\":\"This is a tester tester\",\"click_action\":\"http://localhost:3000/\"}}}" https://fcm.googleapis.com/fcm/send
+
+ --ignore-certificate-errors --unsafely-treat-insecure-origin-as-secure=https://192.168.1.6:8443

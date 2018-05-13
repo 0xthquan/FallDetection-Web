@@ -10,3 +10,39 @@ var config = {
   messagingSenderId: "675417404598"
 };
 firebase.initializeApp(config);
+var messaging = firebase.messaging();
+messaging.setBackgroundMessageHandler(function(payload) {
+  console.log('[firebase-messaging-sw.js] Received background message ', payload);
+  // Customize notification here
+  var notificationTitle = 'This is message';
+  var notificationOptions = {
+    body: 'Fall detection.',
+    icon: 'fall_detection.png',
+    sound: "default",
+  };
+  
+  return self.registration.showNotification(notificationTitle,
+    notificationOptions);
+});
+
+self.addEventListener('notificationclick', function(event) {
+  event.notification.close();
+  console.log('OK')
+  var url = "http://localhost:3000/watch";
+  event.waitUntil(
+      clients.matchAll({
+              type: 'window'
+          })
+          .then(function(windowClients) {
+              for (var i = 0; i < windowClients.length; i++) {
+                  var client = windowClients[i];
+                  if (client.url === url && 'focus' in client) {
+                      return client.focus();
+                  }
+              }
+              if (clients.openWindow) {
+                  return clients.openWindow(url);
+              }
+          })
+  );
+});
