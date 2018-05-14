@@ -12,7 +12,7 @@ var http = require('http');
 var https = require('https');
 // var privateKey  = fs.readFileSync(__dirname + '/sslcert/key.pem', 'utf8');
 // var certificate = fs.readFileSync(__dirname + '/sslcert/server.crt', 'utf8');
-var credentials = {key: privateKey, cert: certificate};
+// var credentials = {key: privateKey, cert: certificate};
 
 
 app.set('view engine', 'ejs');
