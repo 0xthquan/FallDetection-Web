@@ -223,7 +223,7 @@ module.exports = function (app, passport, firebase) {
                     notification: {
                         title: title, //title of notification 
                         body: message, //content of the notification
-                        sound: "../sound.mp3",
+                        sound: "default",
                         icon: 'fall_detection.png',
                         click_action: "http://localhost:3000/"
                     },

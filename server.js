@@ -10,8 +10,8 @@ const Log = require('log');
 const fs = require('fs');
 var http = require('http');
 var https = require('https');
-var privateKey  = fs.readFileSync(__dirname + '/sslcert/key.pem', 'utf8');
-var certificate = fs.readFileSync(__dirname + '/sslcert/server.crt', 'utf8');
+// var privateKey  = fs.readFileSync(__dirname + '/sslcert/key.pem', 'utf8');
+// var certificate = fs.readFileSync(__dirname + '/sslcert/server.crt', 'utf8');
 var credentials = {key: privateKey, cert: certificate};
 
 
@@ -44,11 +44,13 @@ app.use(bodyParser.json());
 require('./app/routes.js')(app, passport);
 require('./config/passport')(passport);
 
-var httpServer = http.createServer(app);
-var httpsServer = https.createServer(credentials, app);
+// var httpServer = http.createServer(app);
+// var httpsServer = https.createServer(credentials, app);
 
-httpServer.listen(8080, ()=> log.info('http Server Started 8080'));
-httpsServer.listen(8443, ()=> log.info('https Server Started 8443'));
-// app.listen(3000, () => console.log('Server started!'));
+// httpServer.listen(8080, ()=> log.info('http Server Started 8080'));
+// httpsServer.listen(8443, ()=> log.info('https Server Started 8443'));
+var port = process.env.PORT;
+
+app.listen(port || 3000, () => console.log('Server started!'));
 
 
