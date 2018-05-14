@@ -8,7 +8,7 @@ var serverKey = "AIzaSyAMBEmcJ-TMH0vhyDgd0yeG-hbeW6xYCeY";
 var fcm = new FCM(serverKey);
 
 
-module.exports = function (app, passport, firebase) {
+module.exports = function (app, passport) {
 
     app.get('/', isLoggedIn2, (req, res, next) => {
         if (isAdmin(req.user)) {
@@ -38,16 +38,15 @@ module.exports = function (app, passport, firebase) {
     })
 
     app.get('/editprofile', isLoggedIn, (req, res) => {
+        console.log(req.token);
         res.render('user/editprofile', { show: items, user: req.user });
     })
 
     app.get('/listcamera', isLoggedIn, (req, res) => {
-        var sql = "select * from use_camera where username = '" + req.user.username + "'";
+        var sql = "SELECT use_camera.id_camera, camera.ip_address, camera.port, camera.description FROM camera JOIN use_camera ON camera.id_camera = use_camera.id_camera WHERE use_camera.username = '" + req.user.username + "'";
         connection.query(sql, (err, result) => {
             if (err) throw err;
-            console.log(result.length);
-            res.render('user/listcamera', { user: req.user, show: items, id: result });
-
+            res.render('user/listcamera', { user: req.user, show: items, camera: result });
         });
     })
 
@@ -157,7 +156,7 @@ module.exports = function (app, passport, firebase) {
 
     app.get("/detail", (req, res) => {
         var user = req.query.user;
-        var sql = "SELECT use_camera.id_camera, camera.ip_address, camera.port, camera.description FROM camera JOIN use_camera ON camera.id_camera = use_camera.id_camera WHERE use_camera.username = '" + req.query.user + "'";
+        var sql = "SELECT use_camera.id_camera, camera.ip_address, camera.port, camera.description FROM camera JOIN use_camera ON camera.id_camera = use_camera.id_camera WHERE use_camera.username = '" + user + "'";
         connection.query(sql, (err, result) => {
             if (err) throw err;
             res.render('admin/detail', { list_camera: result, user: user });
@@ -198,7 +197,12 @@ module.exports = function (app, passport, firebase) {
 
     app.get('/logout', (req, res) => {
         req.logout();
-        res.redirect('/');
+        token = req.session.token;
+        var sql = "delete from notification where token = ? " 
+        connection.query(sql, [token], (err, result)=>{
+            res.redirect('/');
+        })
+        
     });
 
 
@@ -251,6 +255,8 @@ module.exports = function (app, passport, firebase) {
     });
 
     app.post("/saveTokenUserAPI", (req, res) => {
+        req.session.token = req.body.tokenDevice;
+        res.send({token: req.session.token})
         saveTokenUserAPI(req.body.tokenDevice, req.body.username);
     })
 

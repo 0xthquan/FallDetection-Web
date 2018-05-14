@@ -8,3 +8,13 @@ curl -X POST --header "Authorization: key=AIzaSyAMBEmcJ-TMH0vhyDgd0yeG-hbeW6xYCe
 curl --header "Authorization: key=AIzaSyAMBEmcJ-TMH0vhyDgd0yeG-hbeW6xYCeY" --header "Content-Type:application/json" -d "{\"to\":\"deBbaMW5K6U:APA91bHp12vN-nWDcn6D5c0AV7SLK7VbGHtYMyL1NmJfN5yAcJm7HNuV5ivWQqAnfl_9ls7o99wR_hnzUii8HdnULCv6WCSm4xhnNVfj-9B00LLv2jwyC65k5YxdIqaByduyxUxLWk3S\",\"data\":{\"notification\":{\"body\":\"Are you coming to our party?\",\"title\":\"This is a tester tester\",\"click_action\":\"http://localhost:3000/\"}}}" https://fcm.googleapis.com/fcm/send
 
  --ignore-certificate-errors --unsafely-treat-insecure-origin-as-secure=https://192.168.1.6:8443
+
+
+ var connection = mysql.createConnection({
+    host: 'sql9.freemysqlhosting.net',
+    port: 3306,
+    user: 'sql9237825',
+    password: 'XdwAFaSM3Z',
+    database: 'sql9237825'
+});
+

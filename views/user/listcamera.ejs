@@ -2,20 +2,35 @@
     <div class="container">
         <div class="starter-template">
             <div class="row listcamera">
-
-
                 <br/>
-                    <% for (i=0; i<id.length; i++) {%>
+                    <% for (i=0; i<camera.length; i++) {%>
                     <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                        <p style="text-align:left"><b>Camera <%= id[i].id_camera%>: <%=id[i].name_camera%></b></p>
-                        <a href="watch?id=<%=id[i].id_camera%>"><img src="img/camera.png" class="img-responsive"></a>
+                        <p style="text-align:left"><b>Camera <%= camera[i].id_camera%>: <%=camera[i].name_camera%></b></p>
+                        <a href="watch?id=<%=camera[i].id_camera%>"><img  src="http://<%=camera[i].ip_address%>:<%=camera[i].port%>/snapshot.cgi?user=admin&pwd=admin" id="img"
+                            style="width: 320px; height: 180px;" autoplay="true" ></img></a>
                     </div>
                     <% }%>
-
         </div>
     </div>
     <script>
+        // function refresh(node) {
+        //     (function startRefresh() {
+        //         var address;
+        //         if (node.src.indexOf('?') > -1)
+        //             address = node.src.split('?')[0];
+        //         else
+        //             address = node.src;
+        //             node.src = address + "?user=admin&pwd=admin&" + new Date().getTime();
 
-        
+        //         setTimeout(startRefresh, 60);
+        //     })();
+
+        // }
+
+        // window.onload = function () {
+        //     var node = document.getElementById('img');
+        //     refresh(node);
+        //     // you can refresh as many images you want just repeat above steps
+        // }
     </script>
     <% include ../partials/_footer%>
