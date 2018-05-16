@@ -1,0 +1,49 @@
+<% include ../partials/_header%>
+    <div class="container">
+        <div class="starter-template">
+
+            <div class="row listcamera">
+                <a href="/addCameraByUser" class="btnAdd">Thêm camera</a>
+                <br/>
+                <% for (i=0; i<camera.length; i++) {%>
+                    <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                        <p style="text-align:left">
+                            <b>Camera
+                                <%= camera[i].id_camera%>:
+                                <%=camera[i].name_camera%>
+                            </b>
+                        </p>
+                        <a href="watchCamera?id=<%=camera[i].id_camera%>">
+                            <img src="http://<%=camera[i].ip_address%>:<%=camera[i].port%>/snapshot.cgi?user=admin&pwd=admin" id="img" style="width: 320px; height: 180px;"
+                                autoplay="true"></img>
+                        </a>
+                        <form name="submitForm" method="POST" action="/deleteCameraByUser">
+                            <input type="hidden" name="id_camera" value="<%= camera[i].id_camera%>">
+                            <input type="submit" value="Xóa Camera" style="background-color: dodgerblue; color: white">
+                        </form> 
+                    </div>
+                    <% }%>
+            </div>
+        </div>
+        <script>
+        // function refresh(node) {
+        //     (function startRefresh() {
+        //         var address;
+        //         if (node.src.indexOf('?') > -1)
+        //             address = node.src.split('?')[0];
+        //         else
+        //             address = node.src;
+        //             node.src = address + "?user=admin&pwd=admin&" + new Date().getTime();
+
+        //         setTimeout(startRefresh, 60);
+        //     })();
+
+        // }
+
+        // window.onload = function () {
+        //     var node = document.getElementById('img');
+        //     refresh(node);
+        //     // you can refresh as many images you want just repeat above steps
+        // }
+        </script>
+        <% include ../partials/_footer%>

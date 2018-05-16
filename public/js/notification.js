@@ -5,7 +5,7 @@ messaging.requestPermission()
         return messaging.getToken();
     })
     .then(function (token) {
-        sendTokenToServer(token, user);
+        sendTokenToServer(token);
         console.log(token);
 
     })
@@ -39,11 +39,11 @@ function resetUI() {
         });
 }
 
-function sendTokenToServer(currentToken, user) {
+function sendTokenToServer(currentToken) {
     $.ajax({
         method: "POST",
-        url: "/saveTokenUserAPI",
-        data: { tokenDevice: currentToken, username: user }
+        url: "/saveTokenUserFCM",
+        data: { tokenDevice: currentToken }
     }).done(function (msg) {
         if (msg == "1") {
 

@@ -7,7 +7,7 @@
       <div class="panel panel-info">
         <div class="panel-heading">
           <h3 class="panel-title">
-            <%= user.name%>
+            <%= account.name%>
           </h3>
         </div>
         <div class="panel-body">
@@ -18,33 +18,33 @@
                 <tr>
                   <td>Tên đăng nhập:</td>
                   <td>
-                    <%= user.username%>
+                    <%= account.username%>
                   </td>
                 </tr>
                 <tr>
                   <td>Ngày đăng ký:</td>
                   <td>
-                    <%= user.register_date%>
+                    <%= account.register_date%>
                   </td>
                 </tr>
                 <tr>
                   <td>Số điện thoai:</td>
                   <td>
-                    <%= user.phone_number%>
+                    <%= account.phone_number%>
                   </td>
                 </tr>
                 </tr>
                 <tr>
                   <td>Địa chỉ:</td>
                   <td>
-                    <%= user.address%>
+                    <%= account.address%>
                   </td>
                 </tr>
                 <tr>
                   <td>Email:</td>
                   <td>
                     <a href="">
-                      <%= user.email%>
+                      <%= account.email%>
                     </a>
                   </td>
 
@@ -59,5 +59,5 @@
       </div>
     </div>
 
-    <script src="notification.js"></script>
+    <script src="/js/notification.js"></script>
     <% include ../partials/_footer%>

@@ -6,7 +6,7 @@
 	<title>Hệ thống giám sát người cao tuổi</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
-	<link href="style.css" rel="stylesheet">
+	<link href="/css/style.css" rel="stylesheet">
 	<link rel="manifest" href="manifest.json">
 	<script src="/js/jquery.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
@@ -15,7 +15,6 @@
 	<script src="/firebase/firebase-messaging.js"></script>
 
 	<script>
-		var user = "<%= user.username%>";
 		var config = {
 			apiKey: "AIzaSyBlbaG62tmfGjS0HaBU279JIPFjs277NnE",
 			authDomain: "fall-detection-datn.firebaseapp.com",
@@ -85,7 +84,7 @@
 					</li>
 					<li class="dropdown" style="display:<%=show[2] %>;" id="menu-user">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-weight: bold; color: white">Xin chào,
-							<%= user.name%>
+							<%= account.name%>
 								<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" role="menu">
@@ -93,7 +92,7 @@
 								<a href="/profile">Thông tin cá nhân</a>
 							</li>
 							<li>
-								<a href="/listcamera">Camera quan lý</a>
+								<a href="/listUserCamera">Camera của tôi</a>
 							</li>
 						</ul>
 					</li>

@@ -12,61 +12,59 @@
                 </ul>
                 <div id="myTabContent" class="tab-content">
                     <div class="tab-pane active in" id="home">
-                        <form method="POST" action="/edit?user=<%=user.username%>" class="form-horizontal" id="tab">
+                        <form method="POST" action="/editprofile" class="form-horizontal" id="tab">
                             <fieldset>
-
-
                                 <!-- Text input-->
                                 <!-- Text input-->
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="textinput">Họ và tên</label>
                                     <div class="col-md-4">
-                                        <input id="textinput" name="name" type="text" value="<%= user.name%>" class="form-control input-md">
+                                        <input id="textinput" name="name" type="text" value="<%= account.name%>" class="form-control input-md">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="textinput">Email</label>
                                     <div class="col-md-4">
-                                        <input id="textinput" name="email" type="text" value="<%= user.email%>" class="form-control input-md">
+                                        <input id="textinput" name="email" type="text" value="<%= account.email%>" class="form-control input-md">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="textinput">Số điện thoại</label>
                                     <div class="col-md-4">
-                                        <input id="textinput" name="phone_number" type="text" value="<%= user.phone_number%>" class="form-control input-md">
+                                        <input id="textinput" name="phone_number" type="text" value="<%= account.phone_number%>" class="form-control input-md">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                         <label class="col-md-4 control-label" for="textinput">Địa chỉ</label>
                                         <div class="col-md-4">
-                                            <input id="textinput" name="address" type="text" value="<%= user.address%>" class="form-control input-md">
+                                            <input id="textinput" name="address" type="text" value="<%= account.address%>" class="form-control input-md">
                                         </div>
                                     </div>
 
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="singlebutton"></label>
                                     <div class="col-md-4">
-                                        <button id="singlebutton" name="singlebutton" class="btn btn-primary">Cập nhật</button>
+                                        <button id="singlebutton" name="singlebutton" class="btn btn-primary" type="submit">Cập nhật</button>
                                     </div>
                                 </div>
                             </fieldset>
                         </form>
                     </div>
                     <div class="tab-pane fade" id="profile">
-                        <form id="tab2" class="form-horizontal">
+                        <form method="POST" action="/editprofile" id="tab2" class="form-horizontal" >
                             <div class="form-group" style="margin-top: 15px">
                                 <label class="col-md-4 control-label" for="textinput">Mật khẩu</label>
                                 <div class="col-md-4">
-                                    <input id="textinput" name="textinput" type="text" placeholder="Mật khẩu mới" class="form-control input-md">
+                                    <input id="textinput" name="password" type="text" placeholder="Mật khẩu mới" class="form-control input-md">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="singlebutton"></label>
                                 <div class="col-md-4">
-                                    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Cập nhật</button>
+                                    <button id="singlebutton" name="singlebutton" class="btn btn-primary" type="submit">Cập nhật</button>
                                 </div>
                             </div>
                         </form>

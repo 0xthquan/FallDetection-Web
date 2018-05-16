@@ -1,0 +1,32 @@
+<% include ../partials/_header%>
+
+  <div class="container">
+    <div class="starter-template">
+      <p class="lead">
+        <div class="col-xs-12 col-md-8 video-stream">
+          <img src="http://<%=camera[0].ip_address%>:<%=camera[0].port%>/videostream.cgi?user=admin&pwd=admin" alt="">
+          <button onclick="rotate(4)">Left</button>
+          <button onclick="rotate(6)">Right</button>
+          <button onclick="rotate(0)">Up</button>
+          <button onclick="rotate(2)">Down</button>
+        </div>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function rotate(code) {
+    $.ajax({
+        method: "GET",
+        url: `http://<%=camera[0].ip_address%>:<%=camera[0].port%>/decoder_control.cgi?&loginuse=admin&loginpas=admin&command=${code}&onestep=1`,
+
+    }).done(function (msg) {
+        if (msg == "1") {
+          ///
+        }
+    });
+}
+  </script>
+  </body>
+
+<% include ../partials/_footer%>
