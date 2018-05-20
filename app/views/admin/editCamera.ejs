@@ -1,0 +1,60 @@
+<% include ../partials/__headerAdmin%>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+    <link rel="stylesheet" href="css/styleSignup.css">
+    <link rel="stylesheet" href="css/newCamera.css">
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <!-- /.container-fluid-->
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                        <a href="/">Quản Trị</a>
+                </li>
+                <li class="breadcrumb-item active">Chỉnh sửa Camera</li>
+            </ol>
+
+            <div id="myFormRegister" class="container">
+                    <form method="POST" action="/editCamera?id=<%= camera.id_camera%>" class="form-horizontal" id="newCamera">
+                        <h4>Chỉnh sửa camera</h4>
+                        <fieldset>
+                            <!-- Text input-->
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="textinput">IP Address</label>
+                                <div class="col-md-12">
+                                    <input id="textinput" name="ip_address" type="text" value="<%=camera.ip_address%>" class="form-control input-md">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="textinput">Port</label>
+                                <div class="col-md-12">
+                                    <input id="textinput" name="port" type="text" value="<%=camera.port%>" class="form-control input-md">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="textinput">Mô tả</label>
+                                <div class="col-md-12">
+                                    <textarea id="textinput" name="description" type="text" class="form-control input-md" rows="3"><%=camera.description%></textarea>
+                                    <!-- <input id="textinput" name="description" type="text-ảe" value="" class="form-control input-md"> -->
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="singlebutton"></label>
+                                <div class="col-md-6">
+                                    <button style="font-weight: bold;background-color: #7ed321" id="singlebutton" name="singlebutton" class="btn btn-primary">Cập nhật</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+            </div>
+        </div>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+
+
+
+        <!-- /.content-wrapper-->
+        <% include ../partials/__footerAdmin%>

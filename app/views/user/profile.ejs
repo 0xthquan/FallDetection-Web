@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Cache &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+	<meta name="author" content="FREEHTML5.CO" />
+
+	<!-- 
+	//////////////////////////////////////////////////////
+
+	FREE HTML5 TEMPLATE 
+	DESIGNED & DEVELOPED by FREEHTML5.CO
+		
+	Website: 		http://freehtml5.co/
+	Email: 			info@freehtml5.co
+	Twitter: 		http://twitter.com/fh5co
+	Facebook: 		https://www.facebook.com/fh5co
+
+	//////////////////////////////////////////////////////
+	 -->
+
+	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content="" />
+	<meta property="og:image" content="" />
+	<meta property="og:url" content="" />
+	<meta property="og:site_name" content="" />
+	<meta property="og:description" content="" />
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<!-- <link rel="shortcut icon" href="favicon.ico"> -->
+
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/icomoon.css">
+
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/modernizr-2.6.2.min.js"></script>
+
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src="js/profile.js"></script>
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body class="boxed">
+	<!-- Loader -->
+	<div class="fh5co-loader" style="display: none;"></div>
+
+	<div id="wrap">
+
+
+		<div id="fh5co-page">
+			<header id="fh5co-header" role="banner">
+				<div class="container">
+					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark">
+						<i></i>
+					</a>
+					<div id="fh5co-logo">
+						<a href="/">
+							<img src="images/logo.png" alt="Free HTML5 Website Template">
+						</a>
+					</div>
+					<nav id="fh5co-main-nav" role="navigation">
+						<ul>
+							<li>
+								<a href="/">About</a>
+							</li>
+
+							<li>
+								<a href="listUserCamera">Camera của tôi</a>
+							</li>
+							<li>
+								<a href="profile">Hồ sơ</a>
+							</li>
+							<li style="font-size: 16px; color: rgb(43, 124, 230)">
+								Xin chào,
+								<%=account.username%>
+							</li>
+							<li class="cta">
+								<a href="logout">Đăng xuất</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</header>
+			<!-- Header -->
+
+
+			<div class="container">
+
+
+				<!------ Include the above in your HEAD tag ---------->
+
+
+
+				<div class="row">
+
+					<div class="col-md-3">
+						<ul class="nav nav-pills nav-stacked admin-menu">
+							<li class="active">
+								<a href="" data-target-id="profile">
+									<i class="glyphicon glyphicon-user"></i>&nbsp;Thông tin cá nhân</a>
+							</li>
+							<li>
+								<a href="" data-target-id="change-password">
+									<i class="glyphicon glyphicon-lock"></i>&nbsp;Thay đổi mật khẩu</a>
+							</li>
+							<li id="camera">
+								<a href="" data-target-id="manage-camera">
+									<i class="glyphicon glyphicon-facetime-video"></i>&nbsp;Quản lý camera</a>
+							</li>
+							<li>
+								<a href="" data-target-id="logout">
+									<i class="glyphicon glyphicon-log-out"></i>&nbsp;Logout</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="col-md-9  admin-content profile-form" id="profile">
+						<div class="panel panel-info" style="margin: 1em;">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<label class="control-label panel-title">Tên</label>
+								</h3>
+							</div>
+							<div class="panel-body">
+								<%= account.name%>
+							</div>
+						</div>
+						<div class="panel panel-info" style="margin: 1em;">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<label class="control-label panel-title">Email</label>
+								</h3>
+							</div>
+							<div class="panel-body">
+								<%= account.email%>
+							</div>
+						</div>
+						<div class="panel panel-info" style="margin: 1em;">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<label class="control-label panel-title">Số điện thoại</label>
+								</h3>
+							</div>
+							<div class="panel-body">
+								<%= account.phone_number%>
+							</div>
+						</div>
+						<div class="panel panel-info" style="margin: 1em;">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<label class="control-label panel-title">Địa chỉ</label>
+								</h3>
+							</div>
+							<div class="panel-body">
+								<%= account.address%>
+							</div>
+						</div>
+						<div class="panel panel-info" style="margin: 1em;">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<label class="control-label panel-title">Ngày đăng ký</label>
+								</h3>
+							</div>
+							<div class="panel-body">
+								<%= account.register_date%>
+							</div>
+						</div>
+
+						<div class="panel panel-info border edit-profile" style="margin: 1em;">
+							<div class="panel-body">
+								<div class="form-group">
+									<div class="pull-left">
+										<input onclick='changeContent("#edit-profile")' class="form-control btn btn-primary" value="Chỉnh sửa thông tin" id="submit">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-9  admin-content profile-form" id="edit-profile" style="display: none;">
+						<form action="editprofile" method="post">
+							<div class="panel panel-info" style="margin: 1em;">
+								<div class="panel-heading">
+									<h3 class="panel-title">
+										<label class="control-label panel-title">Tên</label>
+									</h3>
+								</div>
+								<div class="panel-body">
+									<div class="form-group">
+										<div class="col-sm-10">
+											<input name="name" value="<%= account.name%>" type="text" class="form-control">
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="panel panel-info" style="margin: 1em;">
+								<div class="panel-heading">
+									<h3 class="panel-title">
+										<label class="control-label panel-title">Email</label>
+									</h3>
+								</div>
+								<div class="panel-body">
+									<div class="form-group">
+										<div class="col-sm-10">
+											<input name="email" value="<%= account.email%>" type="text" class="form-control">
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="panel panel-info" style="margin: 1em;">
+								<div class="panel-heading">
+									<h3 class="panel-title">
+										<label class="control-label panel-title">Số điện thoại</label>
+									</h3>
+								</div>
+								<div class="panel-body">
+									<div class="form-group">
+										<div class="col-sm-10">
+											<input name="phone_number" value="<%= account.phone_number%>" type="text" class="form-control">
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="panel panel-info" style="margin: 1em;">
+								<div class="panel-heading">
+									<h3 class="panel-title">
+										<label class="control-label panel-title">Địa chỉ</label>
+									</h3>
+								</div>
+								<div class="panel-body">
+									<div class="form-group">
+										<div class="col-sm-10">
+											<input name="address" value="<%= account.address%>" type="text" class="form-control">
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="panel panel-info border" style="margin: 1em;">
+								<div class="panel-body">
+									<div class="form-group">
+										<div class="pull-left">
+											<input value="Cập nhật" type="submit" class="form-control btn btn-primary" name="submit" id="submit">
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</form>
+					</div>
+
+					<div class="col-md-9  admin-content profile-form" id="change-password" style="display: none;">
+
+						<form action="editprofile" name="myForm" method="post" onsubmit="return validateForm();">
+
+							<div class="panel panel-info" style="margin: 1em;">
+								<div class="panel-heading">
+									<h3 class="panel-title">
+										<label class="control-label panel-title">Mật khẩu mới</label>
+									</h3>
+								</div>
+								<div class="panel-body">
+									<div class="form-group">
+										<div class="col-sm-10">
+											<input value="" type="password" class="form-control" name="password" id="password">
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+
+							<div class="panel panel-info border" style="margin: 1em;">
+								<div class="panel-body">
+									<div class="form-group">
+										<div class="pull-left">
+											<input value="Cập nhật" type="submit" class="form-control btn btn-primary" name="submit" id="submit">
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</form>
+					</div>
+
+					<div class="col-md-9 admin-content profile-form" id="manage-camera" style="display: none;">
+						<div style="margin: 1em;">
+							<div style="display: flex;align-items: center;justify-content: center;">
+								<input onclick='changeContent("#add-camera")' value="Thêm Camera" type="submit" class="btn btn-primary" name="submit" id="submit">
+							</div>
+						</div>
+						<div class="row row-bottom-padded-sm">
+							<% for (i=0; i<list_camera.length; i++) {%>
+								<div class="col-md-4">
+									<div class="fh5co-service text-center">
+										<a href="watchCamera?id=<%=list_camera[i].id_camera%>">
+											<img src="http://<%=list_camera[i].ip_address%>:<%=list_camera[i].port%>/snapshot.cgi?user=admin&pwd=admin" class="img-responsive img-bordered source-camera"
+											 onerror="checkSourceCamera('<%=list_camera[i].id_camera%>')" id="<%=list_camera[i].id_camera%>">
+
+										</a>
+										<h3>
+											<%=list_camera[i].id_camera%>
+										</h3>
+										<p>
+											<p>
+												<a href="#removeCamera" class="btn btn-primary btn-outline" onclick="removeCamera('<%= list_camera[i].id_camera%>')">Xóa Camera</a>
+											</p>
+
+										</p>
+									</div>
+								</div>
+								<% }%>
+						</div>
+					</div>
+
+					<div class="col-md-9  admin-content profile-form" id="add-camera" style="display: none;">
+						<form action="/addCameraByUser" method="post">
+							<div class="panel panel-info" style="margin: 1em;">
+								<div class="panel-heading">
+									<h3 class="panel-title">
+
+										<label class="control-label panel-title">ID Camera</label>
+
+									</h3>
+								</div>
+								<div class="panel-body">
+									<div class="form-group">
+										<div class="col-sm-10">
+											<% if (message.length > 0) { %>
+												<script>
+													var navListItems = $('.admin-menu li');
+													navListItems.removeClass('active');
+													var allWells = $('.admin-content');
+													$("#camera").addClass('active');
+													allWells.hide();
+													$('#add-camera').show();
+												</script>
+
+												<div class="alert alert-danger">
+													<p style="text-align: center">
+														<%= message %>
+													</p>
+												</div>
+												<% } %>
+													<input name="id_camera" value="" type="text" class="form-control" style="text-transform: uppercase;">
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="panel panel-info border" style="margin: 1em;">
+								<div class="panel-body">
+									<div class="form-group">
+										<div class="pull-left">
+											<input value="Thêm" type="submit" class="form-control btn btn-primary" name="submit" id="submit">
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</form>
+					</div>
+
+
+
+					<div class="col-md-9  admin-content profile-form" id="logout" style="display: none;">
+						<div class="panel panel-info" style="margin: 1em;">
+							<div class="panel-heading">
+								<h3 class="panel-title">Confirm Logout</h3>
+							</div>
+							<div class="panel-body">
+								Do you really want to logout ?&nbsp;&nbsp;
+								<a href="#" class="label label-danger" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+									<span>&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;</span>
+								</a>&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="/account" class="label label-success">&nbsp;
+									<span>&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;</span>
+								</a>
+							</div>
+							<form id="logout-form" action="#" method="POST" style="display: none;">
+							</form>
+
+
+
+						</div>
+					</div>
+				</div>
+
+
+
+			</div>
+
+
+			
+
+
+
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/main.js"></script>
+
+	<script src="/firebase/firebase.js"></script>
+	<script src="/firebase/firebase-app.js"></script>
+	<script src="/firebase/firebase-messaging.js"></script>
+	<script>
+		var config = {
+			apiKey: "AIzaSyBlbaG62tmfGjS0HaBU279JIPFjs277NnE",
+			authDomain: "fall-detection-datn.firebaseapp.com",
+			databaseURL: "https://fall-detection-datn.firebaseio.com",
+			projectId: "fall-detection-datn",
+			storageBucket: "fall-detection-datn.appspot.com",
+			messagingSenderId: "675417404598"
+		};
+		firebase.initializeApp(config);
+		const messaging = firebase.messaging();
+
+	</script>
+	<script src="/js/notification.js"></script>
+
+
+
+
+	<% include ../partials/_footer%>
