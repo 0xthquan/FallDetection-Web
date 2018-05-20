@@ -1,46 +1,185 @@
-<% include ../partials/_header.ejs%>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Cache &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+	<meta name="author" content="FREEHTML5.CO" />
+
+	<!-- 
+	//////////////////////////////////////////////////////
+
+	FREE HTML5 TEMPLATE 
+	DESIGNED & DEVELOPED by FREEHTML5.CO
+		
+	Website: 		http://freehtml5.co/
+	Email: 			info@freehtml5.co
+	Twitter: 		http://twitter.com/fh5co
+	Facebook: 		https://www.facebook.com/fh5co
+
+	//////////////////////////////////////////////////////
+	 -->
+
+	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content="" />
+	<meta property="og:image" content="" />
+	<meta property="og:url" content="" />
+	<meta property="og:site_name" content="" />
+	<meta property="og:description" content="" />
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<!-- <link rel="shortcut icon" href="favicon.ico"> -->
+
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/icomoon.css">
+
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body class="boxed">
+
+	<!-- Loader -->
+	<div class="fh5co-loader"></div>
+
+	<div id="wrap">
+
+		<div id="fh5co-page">
+			<header id="fh5co-header" role="banner">
+				<div class="container">
+					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark">
+						<i></i>
+					</a>
+					<div id="fh5co-logo">
+						<a href="/">
+							<img src="images/logo.png">
+						</a>
+					</div>
+					<nav id="fh5co-main-nav" role="navigation">
+						<ul>
+							<li>
+								<a href="/">About</a>
+							</li>
+
+
+							<% if(account == undefined){ %>
+
+								<li class="cta" id="login">
+									<a href="login">Đăng nhập</a>
+								</li>
+								<% } else {%>
+
+									<li>
+										<a href="/listUserCamera">Camera của tôi</a>
+									</li>
+									<li>
+										<a href="profile">Hồ sơ</a>
+									</li>
+									<li style="font-size: 16px; color: rgb(43, 124, 230)">
+										Xin chào,
+										<%=account.username%>
+									</li>
+									<li class="cta" id="logout" ">
+										<a href="logout ">Đăng xuất</a>
+									</li>
+							<% } %>
+						</ul>
+					</nav>
+				</div>
+			</header>
+			<!-- Header -->
+
+			<div class="fh5co-slider ">
+				<div class="container ">
+					<div class="owl-carousel owl-carousel-main ">
+						<div>
+							<img src="images/slider_1.jpg " alt="Free HTML5 Website Template ">
+						</div>
+						<div>
+							<img src="images/slider_2.jpg " alt="Free HTML5 Website Template ">
+						</div>
+						<div>
+							<img src="images/slider_3.jpg " alt="Free HTML5 Website Template ">
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Slider -->
+
+			<div id="fh5co-intro " class="fh5co-section ">
+				<div class="container ">
+					<div class="row row-bottom-padded-md ">
+						<div class="col-md-8 col-md-offset-2 text-center ts-intro ">
+							<h1>Chúng tôi quan tâm đến bạn</h1>
+							<p class="fh5co-lead " style="text-align: justify ">Việc chăm sóc người thân có tuổi có thể là một công việc khó khăn. 
+								Do chi phí gia tăng của các nhà điều dưỡng và các cơ sở chăm sóc được hỗ trợ, nhiều người đang chọn chăm sóc tại gia cho các thành viên trong gia đình cao tuổi của họ. 
+								Tuy nhiên, nghiên cứu cho thấy hơn 33% người cao tuổi - những người từ 65 tuổi trở lên – bị té ngã mỗi năm. Vì vậy hãy đến với chúng tôi để bảo vệ những người thân yêu của bạn chống lại một chấn 
+								thương không mong muốn</p>
+						</div>
+					</div>
+					<div class="row row-bottom-padded-sm ">
+						<div class="col-md-4 ">
+							<div class="fh5co-service text-center ">
+								<span class="fh5co-service-icon fh5co-icon-pentagon ">
+									<i class="icon-tools-2 "></i>
+								</span>
+								<h3>Tools We Use</h3>
+								<p>Một hệ thống cảnh báo y tế bằng camera từ LQ Inc. có thể cực kỳ hữu ích trong việc giúp người cao niên giữ an toàn khi họ già đi. </p>
+							</div>
+						</div>
+						<div class="col-md-4 ">
+							<div class="fh5co-service text-center ">
+								<span class="fh5co-service-icon fh5co-icon-pentagon ">
+									<i class="icon-trophy22 "></i>
+								</span>
+								<h3>Benifit</h3>
+								<p>Cho phép những người thân yêu của bạn ở lại nhà của họ và giữ lại sự độc lập của họ trong khi cho bạn yên tâm rằng sự an toàn của họ không bị tổn hại</p>
+							</div>
+						</div>
+						<div class="col-md-4 ">
+							<div class="fh5co-service text-center ">
+								<span class="fh5co-service-icon fh5co-icon-pentagon ">
+									<i class="icon-profile-male "></i>
+								</span>
+								<h3>24/7 Customer Support</h3>
+								<p>Cung cấp hỗ trợ tất cả các trường hợp khẩn cấp liên quan đến hệ thống 24/7 </p>
+							</div>
+						</div>
+					</div>
 
 
 
-    <div class="container">
 
-        <div class="starter-template">
-        
-              <!-- Portfolio Item Row -->
-              <div class="row">
-        
-                <div class="col-md-7">
-                  <img class="img-fluid" src="img/info_3.jpg" alt="">
-                </div>
-        
-                <div class="col-md-5">
-                  <h3 class="my-3">Hãy đến với chúng tôi</h3>
-                  <div style="text-align: justify; text-justify: inter-word">
-                  <p>
-                      Theo thống kế thì khoảng 30-45% người > 65 tuổi té ít nhất 1 lần/1 năm. Số lượng này lên đến 50% ở người > 80 tuổi
-                </p>
-                <p>
-                    Hiện nay, đã có một số nghiên cứu và sản phẩm về thiết bị phần cứng hỗ trợ người cao tuổi thông báo đến người thân hoặc nhân viên khi gặp sự cố. Người cao tuổi phải đeo những thiết bị này, để dựa vào cảm biến gia tốc mà phát hiện sự té ngã. Một giải pháp khác là nút báo động được bấm khi người dùng ngã. Tuy vậy, không ít người dùng lại quên mang nút bấm bên mình, hoặc nếu có thì trong trường hợp bất tỉnh, người dùng vẫn không thể bấm nút.
-                </p>
-                <p>
-                    Để khắc phục những hạn chế này, và tạo sự thuận tiện cho người sử dụng, một hệ thống bao gồm một máy tính (có thể là một mạch Rasperry Pi), được kết nối với IP camera (có dây hoặc không dây) được đặt ở góc phòng (thường nên đặt ở vị trí trên cao để có thể quan sát hết một không gian rộng) dùng để theo dõi và phát hiện té ngã ở người (cao tuổi). Người sử dụng sẽ thoải mái hơn khi không cần mang theo thiết bị nào nữa.
-                </p>
-            </div>
-            <a class="btn btn-primary" href="#" role="button">Liên hệ ngay</a>
-                  <!-- <h3 class="my-3">Project Details</h3>
-                  <ul>
-                    <li>Lorem Ipsum</li>
-                    <li>Dolor Sit Amet</li>
-                    <li>Consectetur</li>
-                    <li>Adipiscing Elit</li>
-                  </ul> -->
-                </div>
-        
-              </div>
+				</div>
+			</div>
 
-    
-        </div>
-    </div>
 
-    </body>
-<% include ../partials/_footer%>
+	<script src="js/jquery.min.js "></script>
+	<script src="js/jquery.easing.1.3.js "></script>
+	<script src="js/bootstrap.min.js "></script>
+	<script src="js/owl.carousel.min.js "></script>
+	<script src="js/main.js "></script>
+	<script src="js/index.js "></script>
+
+	<% include ../partials/_footer%>

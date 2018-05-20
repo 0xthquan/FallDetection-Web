@@ -30,19 +30,19 @@ module.exports =  () => {
                 if (err) return done(err);
 
                 if (!rows.length)
-                    return done(null, false, req.flash('loginMessage', 'User is not exist!'));
+                    return done(null, false, req.flash('loginMessage', 'Tài khoản không hợp lệ'));
 
                 if (rows[0].password != password)
-                    return done(null, false, req.flash('loginMessage', 'Wrong password!'));
+                    return done(null, false, req.flash('loginMessage', 'Tài khoản không hợp lệ'));
                 return done(null, rows[0]);
             });
         }));
 
     passport.use('local-signup', new LocalStrategy({
-        // by default, local strategy uses username and password, we will override with email
+
         usernameField: 'username',
         passwordField: 'password',
-        passReqToCallback: true // allows us to pass back the entire request to the callback
+        passReqToCallback: true
     },
         function (req, username, password, done) {
             var role = req.body.role;
@@ -76,6 +76,7 @@ module.exports =  () => {
                             var insertQuery = "INSERT INTO account (username, password, role, name, email, phone_number, address, register_date) VALUES ( ? , ? , ? , ? , ? , ? , ? , ? )";
                             connection.query(insertQuery, [newUser.username, newUser.password, newUser.role, newUser.name, newUser.email, newUser.phone_number, newUser.address, newUser.register_date], function (err, rows) {
                                 if(err) return done(err);
+                                
                                 return done(null);                             
                             });
                         }

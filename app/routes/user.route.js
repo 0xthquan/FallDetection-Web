@@ -4,10 +4,10 @@ var user = require('../../app/controllers/user.controller'),
 
 
 module.exports = (app) => {
-    app.route('/').get(auth.isLoggedIn, user.index);
+    app.route('/').get(user.index);
 
     app.route('/login')
-        .get(auth.isLoggedIn, user.login)
+        .get(auth.isUserLoggedIn, user.login)
         .post(passport.authenticate('local-login', {
             successRedirect: '/profile',
             failureRedirect: '/login',
@@ -16,11 +16,11 @@ module.exports = (app) => {
 
     app.route('/logout').get(user.logout);
 
-    app.route('/profile').get(auth.checkUserLogin, user.showProfile);
+    app.route('/profile').get(auth.requestUserLogin, user.showProfile);
     
-    app.route('/editprofile').get(auth.checkUserLogin, user.editProfile).post(user.updateUser);
+    app.route('/editprofile').get(auth.requestUserLogin, user.editProfile).post(user.updateUser);
 
-    app.route('/deleteUser').post(user.deleteUser);
+    // app.route('/deleteUser').post(user.deleteUser);
 
     app.route('/saveTokenUserFCM').post(user.saveTokenUserFCM);
 

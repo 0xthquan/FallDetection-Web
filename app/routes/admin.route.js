@@ -6,26 +6,30 @@ var admin = require('../../app/controllers/admin.controller'),
 
 module.exports = (app) => {
     //Login
-    app.route('/admin/login').get(auth.isLoggedIn, admin.login);
+    app.route('/admin/login').get(auth.isAdminLoggedIn, admin.login);
 
     app.route('/admin')
-        .get(auth.checkAdminLogin, admin.index)
+        .get(auth.requestAdminLogin, admin.index)
         .post(passport.authenticate('local-login', {
             successRedirect: '/admin',
             failureRedirect: '/admin',
             failureFlash: true
         }));
 
-    // app.route('/admin').get(auth.checkAdminLogin, admin.index);
+    // app.route('/admin').get(auth.requestAdminLogin, admin.index);
 
-    app.route('/manage').get(auth.checkAdminLogin, admin.manage);
+    // app.route('/manage').get(auth.requestAdminLogin, admin.manage);
 
-    app.route('/detailUser').get(auth.checkAdminLogin, admin.detailUser);
+    app.route('/cameraUse').get(auth.requestAdminLogin, admin.cameraUse);
 
-    app.route('/editUser').get(auth.checkAdminLogin, admin.editUser).post(admin.updateUser);
+    app.route('/editUser').get(auth.requestAdminLogin, admin.editUser).post(admin.updateUser);
     
+    app.route('/deleteUser').post(auth.requestAdminLogin, admin.deleteUser);
+
+    app.route('/adminLogout').get(admin.logout);
+
     app.route('/signUp')
-        .get(auth.checkAdminLogin, admin.signUp)
+        .get(auth.requestAdminLogin, admin.signUp)
         .post(passport.authenticate('local-signup', {
             successRedirect: '/admin', 
             failureRedirect: '/signup', 

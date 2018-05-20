@@ -13,7 +13,7 @@ exports.insertCamera = (req, res) => {
     var sql = "insert into camera(id_camera,ip_address,port,description) value ( ? , ? , ? , ? ) ";
     connection.query(sql, [id, ip, port, description], (err, result) => {
         if (err) console.log("asdasd");
-        res.redirect("/manage");
+        res.redirect("/listAllCamera");
     });
 }
 
@@ -21,7 +21,7 @@ exports.editCamera = (req, res) => {
     var sql = "select * from camera where id_camera = '" + req.query.id + "'";
     connection.query(sql, (err, result) => {
         if (err) throw err;
-        res.render('admin/editcamera', { camera: result[0] });
+        res.render('admin/editCamera', { camera: result[0] });
     });
 }
 
@@ -33,7 +33,7 @@ exports.updateCamera = (req, res) => {
     var sql = "update camera set ip_address = ? , port = ? , description = ? where  ?";
     connection.query(sql, [ip, port, description, { id_camera: req.query.id }], (err, result) => {
         if (err) throw err;
-        res.redirect("/manage");
+        res.redirect("/listAllCamera");
     });
 }
 
@@ -41,7 +41,7 @@ exports.listUserCamera = (req, res) => {
     var sql = "SELECT use_camera.id_camera, camera.ip_address, camera.port, camera.description FROM camera JOIN use_camera ON camera.id_camera = use_camera.id_camera WHERE use_camera.username = '" + req.account.username + "'";
     connection.query(sql, (err, result) => {
         if (err) throw err;
-        res.render('user/listUserCamera', { account: req.account, show: items, camera: result });
+        res.render('user/listUserCamera', { account: req.account, camera: result });
     });
 }
 
@@ -49,59 +49,80 @@ exports.watchCamera = (req, res) => {
     var sql = "select * from camera where id_camera = '" + req.query.id + "'";
     connection.query(sql, (err, result) => {
         if (err) throw err;
-        res.render('user/watch', { show: items, account: req.account, camera: result });
+        res.render('user/watch', {  account: req.account, camera: result });
     });
 }
 
 exports.listAllCamera = (req, res) => {
-    var username = req.query.username;
     var sql = "SELECT * FROM camera";
     connection.query(sql, (err, result) => {
         if (err) throw err;
-        res.render('admin/listAllCamera', { list_camera: result, account_username: username });
+        res.render('admin/listAllCamera', { list_camera: result });
     });
 }
 
 exports.addCameraByAdmin = (req, res) => {
-    var username = req.body.username;
-    var id_camera = req.body.id_camera;
-    var sql = "insert into use_camera value ( ? , ? ) ";
-    connection.query(sql, [username, id_camera], (err, result) => {
+    var id_camera = req.query.id;
+    var sql = "SELECT * FROM account WHERE role = 'user' AND username NOT IN (SELECT username FROM use_camera WHERE id_camera = ? )";
+    connection.query(sql,[id_camera], (err, result) => {
         if (err) throw err;
-        res.redirect("/manage");
+        res.render("admin/addCameraForUser", {list_account: result, id_camera: id_camera});
     });
 }
 
-exports.addCameraByUserGet = (req, res) => {
-    res.render('user/addCameraByUser', { account: req.account, show: items, message: req.flash('addFailed') });
-}
+// exports.addCamera = (req, res) => {
+//     res.render('user/addCameraForUser', { account: req.account,  message: req.flash('addFailed') });
+// }
 
-exports.addCameraByUserPost = (req, res) => {
-    var id_camera = req.body.idCamera.toUpperCase();
-    var username = req.account.username;
+exports.addCameraForUser = (req, res) => {
+    var id_camera = req.body.id_camera.toUpperCase();
+    var username;
+    if(req.account.role == 'user')  username = req.account.username;
+    else username = req.body.username
     sql = "select * from camera where id_camera = ? "
     connection.query(sql, [id_camera], (err, result) => {
         if (err) throw err;
         if (result.length != 0) {
             var sql = "insert into use_camera value ( ? , ? ) ";
             connection.query(sql, [username, id_camera], (err, result) => {
-                if (err) throw err;
-                res.redirect("/listUserCamera");
+                if (err) {
+                    req.flash('addFaild', 'ID Camera không hợp lệ');
+                    res.redirect('/profile');
+                }
+                if(req.account.role == 'user')  res.redirect("/profile");
+                else res.redirect("/listAllCamera");
             });
         } else {
             req.flash('addFailed', 'ID Camera không hợp lệ');
-            res.redirect('/addCameraByUser');
+            res.redirect('/profile');
         }
     });
-
 }
 
-exports.deleteCameraByUser = (req, res) => {
-    var username = req.account.username;
+exports.removeCamera = (req, res) => {
+    var username;
+    if(req.account.role == 'user') username = req.account.username;
+    else username = req.body.username;
     var id_camera = req.body.id_camera;
     var sql = 'delete from use_camera where username = ? and id_camera = ? ';
     connection.query(sql, [username, id_camera], (err, result) => {
         if (err) throw err;
-        res.redirect("/listUserCamera");
+        console.log("xoa dc");
+        if(req.account.role == 'admin') res.redirect('/useCamera?username=' + username);
+        // res.redirect("/profile");
+    });
+}
+
+exports.deleteCamera = (req, res) => {
+    var id_camera = req.body.id_camera;
+    var sql = 'delete from use_camera where id_camera = ? ';
+    connection.query(sql, [id_camera], (err, result) => {
+        if (err) throw err;
+        sql = 'delete from camera where id_camera = ? ';
+        connection.query(sql, [id_camera], (err, result) => {
+            if (err) throw err;
+            res.redirect('/listAllCamera');
+        });
+        
     });
 }

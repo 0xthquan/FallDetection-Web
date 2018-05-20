@@ -18,3 +18,11 @@ curl --header "Authorization: key=AIzaSyAMBEmcJ-TMH0vhyDgd0yeG-hbeW6xYCeY" --hea
     database: 'sql9237825'
 });
 
+
+ var connection = mysql.createConnection({
+    host: 'localhost',
+    port: 3306,
+    user: 'root',
+    password: '',
+    database: 'db_falldetection'
+});

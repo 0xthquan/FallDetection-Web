@@ -4,21 +4,27 @@ var camera = require('../../app/controllers/camera.controller'),
 
 
 module.exports = (app) => {
-    app.route('/listUserCamera').get(auth.checkUserLogin, camera.listUserCamera);
+    app.route('/listUserCamera').get(auth.requestUserLogin, camera.listUserCamera);
 
-    app.route('/watchCamera').get(auth.checkUserLogin, camera.watchCamera);
+    app.route('/watchCamera').get(auth.requestUserLogin, camera.watchCamera);
 
-    app.route('/listAllCamera').get(auth.checkAdminLogin, camera.listAllCamera);
+    app.route('/listAllCamera').get(auth.requestAdminLogin, camera.listAllCamera);
 
-    app.route('/newCamera').get(auth.checkAdminLogin, camera.newCamera).post(camera.insertCamera);
+    app.route('/newCamera')
+        .get(auth.requestAdminLogin, camera.newCamera)
+        .post(camera.insertCamera);
 
-    app.route('/editCamera').get(auth.checkAdminLogin, camera.editCamera).post(camera.updateCamera);
+    app.route('/editCamera')
+        .get(auth.requestAdminLogin, camera.editCamera)
+        .post(camera.updateCamera);
 
-    app.route('/addCameraByAdmin').post(auth.checkAdminLogin, camera.addCameraByAdmin);
+    app.route('/addCameraByAdmin')
+        .get(auth.requestAdminLogin, camera.addCameraByAdmin)
+        .post(camera.addCameraForUser);
 
-    app.route('/addCameraByUser')
-        .get(auth.checkUserLogin, camera.addCameraByUserGet)
-        .post(auth.checkUserLogin, camera.addCameraByUserPost);
+    app.route('/addCameraByUser').post(auth.requestUserLogin, camera.addCameraForUser);
 
-    app.route('/deleteCameraByUser').post(auth.checkUserLogin, camera.deleteCameraByUser);
+    app.route('/removeCamera').post(camera.removeCamera);
+
+    app.route('/deleteCamera').post(auth.requestAdminLogin, camera.deleteCamera);
 }

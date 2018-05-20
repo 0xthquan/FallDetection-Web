@@ -1,0 +1,93 @@
+<% include ../partials/__headerAdmin%>
+<link href="css/index.css" rel="stylesheet">
+<script src="js/camera.js"></script>
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/">Quản Trị</a>
+        </li>
+        <li class="breadcrumb-item active">Thêm Camera cho người dùng</li>
+      </ol>
+      <!-- Example DataTables Card-->
+      <div class="card mb-3">
+
+        <div class="card-body" style="padding-left: 0px; padding-right: 0px; padding-top: 0px"></div>
+
+        <div id="dataTable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+            <h4 style="color: navy;">ID Camera:
+                <%=id_camera%>
+            </h4>
+          <div class="row">
+            <div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
+              <div id="dataTable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+                <div class="row">
+                  <div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
+                    <div id="dataTable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+                      <div class="row">
+                        <div class="col-sm-12" style="padding-left: 0px !important;padding-right: 0px !important;">
+                          <table class="table table-bordered dataTable" id="dataTable" role="grid" aria-describedby="dataTable_info" style="width: 100%; font-size: 15px;"
+                            width="100%" cellspacing="0">
+                            <thead>
+                              <tr role="row">
+                                <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20px;" aria-label="Name: activate to sort column descending"
+                                  class="sorting_asc" aria-sort="ascending">Tài khoản</th>
+                                <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 150px; " aria-label="Position: activate to sort column ascending"
+                                  class="sorting">Tên</th>
+                                  <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 40px;" aria-label="Age: activate to sort column ascending"
+                                  class="sorting">Email</th>
+                                <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 50px; " aria-label="Age: activate to sort column ascending"
+                                  class="sorting">Số điện thoại</th>
+                                
+                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 10px; text-align: center" aria-label="Salary: activate to sort column ascending">...</th>
+                              </tr>
+                            </thead>
+                            
+                            <tbody>
+                              <%
+                                    for (var i = 0; i < list_account.length; i++) {
+                                %>
+
+                                <tr role="row">
+                                  <td class="sorting_1">
+                                    <%=list_account[i].username %>
+                                  </td>
+                                  <td>
+                                    <%=list_account[i].name %>
+                                  </td>
+                                  <td>
+                                    <%=list_account[i].email %>
+                                  </td>
+                                  <td>
+                                    <%=list_account[i].phone_number %>
+                                  </td>
+                                 
+                                  <td style="text-align: center;">
+                                    <a href="" onclick="addCameraForUser('<%=list_account[i].username %>', '<%=id_camera %>')">
+                                      <i style="font-size: 20px;" class="fa fa-fw fa-plus"></i>
+                                      <span>Thêm</span>
+                                    </a>
+                                  </td>
+                                </tr>
+                                <%
+                                }
+                            %>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <!-- /.container-fluid-->
+  <% include ../partials/__footerAdmin%>
