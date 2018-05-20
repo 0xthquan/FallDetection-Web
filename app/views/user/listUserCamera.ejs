@@ -112,7 +112,8 @@
 							<div class="col-md-6">
 								<div class="fh5co-service text-center">
 									<a href="watchCamera?id=<%=camera[i].id_camera%>">
-										<img src="http://<%=camera[i].ip_address%>:<%=camera[i].port%>/snapshot.cgi?user=admin&pwd=admin" class="img-responsive img-bordered">
+										<img src="http://<%=camera[i].ip_address%>:<%=camera[i].port%>/snapshot.cgi?user=admin&pwd=admin" 
+										class="img-responsive img-bordered source-camera" onerror="checkSrcCamera('<%=camera[i].id_camera%>')" id="<%=camera[i].id_camera%>">
 									</a>
 									<h4>
 										<%= camera[i].id_camera%>
@@ -132,4 +133,6 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
+
+	<script src="js/camera.js"></script>
 	<% include ../partials/_footer%>

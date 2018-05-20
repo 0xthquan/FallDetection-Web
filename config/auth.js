@@ -53,7 +53,7 @@ exports.requestAdminLogin = (req, res, next) => {
             return next();
         } else {
             req.logout();
-            req.flash('loginMessage', 'Rất tiêc! Trang web không cho phép truy cập đồng thời nhiều tài khoản trên 1 trình duyệt');
+            req.flash('loginMessage', 'Tài khoản không hợp lệ');
             res.redirect('/admin/login');
         }
 

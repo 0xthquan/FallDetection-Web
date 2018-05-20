@@ -83,7 +83,7 @@ function checkSourceCamera(idCamera){
     //     timeout: 3000 // sets timeout to 3 seconds
     // });
     $('#'+ idCamera + '.source-camera').attr({
-        src: 'https://1.bp.blogspot.com/-kIqg5TxoHig/U2XtDcqs2GI/AAAAAAAABm0/3RkvyIHi20A/s1600/there-is-no-connected-camera-mac.jpg',
+        src: 'images/error_connect_camera.jpg',
     });
     return;
 }   

@@ -66,80 +66,88 @@
 	<div id="wrap">
 
 		<div id="fh5co-page">
-				<header id="fh5co-header" role="banner">
-						<div class="container">
-							<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark">
-								<i></i>
-							</a>
-							<div id="fh5co-logo">
-								<a href="/">
-									<img src="images/logo.png">
-								</a>
-							</div>
-							<nav id="fh5co-main-nav" role="navigation">
-								<ul>
-									<li>
-										<a href="about.html">About</a>
-									</li>
-		
-									<li>
-										<a href="listUserCamera">Camera của tôi</a>
-									</li>
-									<li>
-										<a href="profile">Hồ sơ</a>
-									</li>
-									<li style="font-size: 16px; color: rgb(43, 124, 230)">
-										Xin chào,
-										<%=account.username%>
-									</li>
-									<li class="cta">
-										<a href="logout">Đăng xuất</a>
-									</li>
-								</ul>
-							</nav>
-						</div>
-					</header>
+			<header id="fh5co-header" role="banner">
+				<div class="container">
+					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark">
+						<i></i>
+					</a>
+					<div id="fh5co-logo">
+						<a href="/">
+							<img src="images/logo.png">
+						</a>
+					</div>
+					<nav id="fh5co-main-nav" role="navigation">
+						<ul>
+							<li>
+								<a href="about.html">About</a>
+							</li>
+
+							<li>
+								<a href="listUserCamera">Camera của tôi</a>
+							</li>
+							<li>
+								<a href="profile">Hồ sơ</a>
+							</li>
+							<li style="font-size: 16px; color: rgb(43, 124, 230)">
+								Xin chào,
+								<%=account.username%>
+							</li>
+							<li class="cta">
+								<a href="logout">Đăng xuất</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</header>
 			<!-- Header -->
 
 			<div class="fh5co-slider">
 				<div class="container">
 					<img src="http://<%=camera[0].ip_address%>:<%=camera[0].port%>/videostream.cgi?user=admin&pwd=admin" class="img-responsive">
-					<button onclick="rotate(4)">Left</button>
-					<button onclick="rotate(6)">Right</button>
-					<button onclick="rotate(0)">Up</button>
-					<button onclick="rotate(2)">Down</button>
+					<div class="row">
+						<div class="col-md-4 col-md-push-4 col-sm-12 col-sm-push-4 ">
+
+									<button onclick="rotate(4)">Left</button>
+									<button onclick="rotate(6)">Right</button>
+									<button onclick="rotate(0)">Up</button>
+									<button onclick="rotate(2)">Down</button>
+							
+						</div>
+					</div>
 				</div>
+				
 			</div>
+		</div>
 
-			<script>
-				function rotate(code) {
-					$.ajax({
-						method: "GET",
-						url: `http://<%=camera[0].ip_address%>:<%=camera[0].port%>/decoder_control.cgi?&loginuse=admin&loginpas=admin&command=${code}&onestep=1`,
+		<script>
+			function rotate(code) {
+				$.ajax({
+					method: "GET",
+					url: `http://<%=camera[0].ip_address%>:<%=camera[0].port%>/decoder_control.cgi?&loginuse=admin&loginpas=admin&command=${code}&onestep=1`,
 
-					}).done(function (msg) {
-						if (msg == "1") {
-							///
-						}
-					});
-				}
-			</script>
-			<!-- Slider -->
-
-
-
-			<div id="fh5co-intro" class="fh5co-section">
-
-			</div>
-			
-
-	<script src="js/jquery.min.js"></script>
-	<script src="js/jquery.easing.1.3.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/main.js"></script>
+				}).done(function (msg) {
+					if (msg == "1") {
+						///
+					}
+				});
+			}
+		</script>
+		<!-- Slider -->
 
 
 
+		<div id="fh5co-intro" class="fh5co-section">
 
-	<% include ../partials/_footer%>
+		</div>
+
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.easing.1.3.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
+		<script src="js/main.js"></script>
+
+
+
+
+		<% include ../partials/_footer%>

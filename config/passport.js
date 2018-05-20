@@ -55,13 +55,13 @@ module.exports =  () => {
                 if (err)
                     return done(err);
                 if (rows.length) {
-                    return done(null, false, req.flash('signupMessage', 'That username is already taken.'));
+                    return done(null, false, req.flash('signupMessage', 'Tên đăng này đã có người sử dung'));
                 } else {
                     connection.query("SELECT * FROM account WHERE email = ?", [email], function (err, rows) {
                         if (err)
                             return done(err);
                         if (rows.length) {
-                            return done(null, false, req.flash('signupMessage', 'That email is already used.'));
+                            return done(null, false, req.flash('signupMessage', 'Email này đã được đăng ký'));
                         } else {
                             var newUser = {
                                 username: username,

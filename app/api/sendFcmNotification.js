@@ -26,7 +26,7 @@ module.exports = (app) => {
                         title: title, //title of notification 
                         body: message, //content of the notification
                         sound: "default",
-                        icon: 'img/fall_detection.png',
+                        icon: 'images/fall_detection.png',
                         click_action: "https://falldetection-datn.herokuapp.com/watchCamera?id=" + id_camera,
                     },
                     // data: data //payload you want to send with your notification

@@ -31,3 +31,22 @@ function addCameraForUser(username, idCamera){
         alert("Thêm thành công");
     }
 }
+
+function checkSrcCamera(idCamera){
+    var srcCamera = $('#'+ idCamera).attr('src');
+    console.log(srcCamera);
+    // $.ajax({
+    //     url: "test.html",
+    //     error: function(){
+    //         // will fire when timeout is reached
+    //     },
+    //     success: function(){
+    //         //do something
+    //     },
+    //     timeout: 3000 // sets timeout to 3 seconds
+    // });
+    $('#'+ idCamera + '.source-camera').attr({
+        src: '/images/error_connect_camera.jpg',
+    });
+    return;
+}   
