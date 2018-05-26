@@ -18,18 +18,18 @@ module.exports = (app) => {
 
             if (result.length != 0) {
 
-                var message = "Thong bao te nga";
-                var title = "PHAT HIEN TE NGA";
+                var message = "Thông báo té ngã";
+                var title = "PHÁT HIỆN TÉ NGÃ";
                 var message = {
                     registration_ids: array,
                     notification: {
-                        title: title, //title of notification 
-                        body: message, //content of the notification
+                        title: title, 
+                        body: message, 
                         sound: "default",
                         icon: 'images/fall_detection.png',
                         click_action: "https://falldetection-datn.herokuapp.com/watchCamera?id=" + id_camera,
                     },
-                    // data: data //payload you want to send with your notification
+                    
                 };
 
                 fcm.send(message, function (err, response) {
