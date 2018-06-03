@@ -83,12 +83,12 @@
 							</li>
 
 
-							<% if(account == undefined){ %>
+							<% if(account == undefined || account.role == 'admin'){ %>
 
 								<li class="cta" id="login">
 									<a href="login">Đăng nhập</a>
 								</li>
-								<% } else {%>
+								<% } else if(account.role == 'user') {%>
 
 									<li>
 										<a href="/listUserCamera">Camera của tôi</a>
